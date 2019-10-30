@@ -10,7 +10,6 @@ import com.accenture.cursospring.models.dao.IClienteDao;
 import com.accenture.cursospring.models.entity.Cliente;
 
 
-
 @Service//demarcamos la clase como service para que sea un componente del bin
 public class ClienteServiceImplementacion implements IClienteService{
 
@@ -23,6 +22,27 @@ public class ClienteServiceImplementacion implements IClienteService{
 	public List<Cliente> findAll() {
 		// TODO Auto-generated method stub
 		return (List<Cliente>) clientedao.findAll();
+	}
+
+	@Override
+	@Transactional
+	public Cliente save(Cliente cliente) {
+		// TODO Auto-generated method stub
+		return clientedao.save(cliente);
+	}
+
+	@Override
+	@Transactional(readOnly=true)
+	public Cliente findById(Long id) {
+		// TODO Auto-generated method stub
+		return clientedao.findById(id).orElse(null);//si no encuentra el ciiente retorna null
+	}
+
+	@Override
+	@Transactional
+	public void delete(Long id) {
+		// TODO Auto-generated method stub
+		clientedao.deleteById(id);
 	}
 
 }

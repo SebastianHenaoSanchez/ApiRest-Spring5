@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.PrePersist;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -31,6 +32,10 @@ public class Cliente implements Serializable{
 	@Temporal(TemporalType.DATE)//para transfomar la fecha a tipo date 
 	private Date createAt;
 	
+	@PrePersist //antes de que se haga el save, que me incluya la fecha (persistencia de datos)
+	public void prePersist() {
+		createAt = new Date();
+	}
 	
 	public Long getId() {
 		return id;
