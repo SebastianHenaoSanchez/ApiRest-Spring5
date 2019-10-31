@@ -19,7 +19,7 @@ import com.accenture.cursospring.models.entity.Cliente;
 import com.accenture.cursospring.models.services.IClienteService;
 
 //se usa para permitir de donde me hacen las peticiones, en este caso ponemos la de angular
-@CrossOrigin(origins= {"http://localhost:4200"},methods= {RequestMethod.GET})
+@CrossOrigin(origins= {"http://localhost:4200"},methods= {RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE})
 @RestController//usamos esta notación porque es una apirest
 @RequestMapping("/api")//mapeamos el rest controller para generar la url
 public class ClienteRestController {
