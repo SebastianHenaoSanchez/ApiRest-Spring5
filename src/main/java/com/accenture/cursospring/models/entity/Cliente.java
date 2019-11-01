@@ -24,8 +24,11 @@ public class Cliente implements Serializable{
 	private Long id;
 	
 	//@Column(): con esta anotación se puede indicar el nombre de la columna, ó si puede ser null, si se puede modificar, el tamaño de caracteres, etc
+	@Column(nullable=false)
 	private String  nombre;
 	private String apellido;
+	
+	@Column(nullable = false, unique = true, length = 200)
 	private String email;
 	
 	@Column(name="create_at")
