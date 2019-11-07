@@ -12,6 +12,9 @@ import javax.persistence.PrePersist;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 
 
 
@@ -24,10 +27,15 @@ public class Cliente implements Serializable{
 	private Long id;
 	
 	//@Column(): con esta anotación se puede indicar el nombre de la columna, ó si puede ser null, si se puede modificar, el tamaño de caracteres, etc
-	@Column(nullable=false)
+	@NotEmpty
+	@Size(min=4, max=12)
+	@Column(nullable = false)
 	private String  nombre;
+	
 	private String apellido;
 	
+	@NotEmpty
+	@Email
 	@Column(nullable = false, unique = true, length = 200)
 	private String email;
 	
