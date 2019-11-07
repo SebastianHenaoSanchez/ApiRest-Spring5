@@ -3,6 +3,8 @@ package com.accenture.cursospring.models.services;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -43,6 +45,13 @@ public class ClienteServiceImplementacion implements IClienteService{
 	public void delete(Long id) {
 		// TODO Auto-generated method stub
 		clientedao.deleteById(id);
+	}
+
+	@Override
+	@Transactional(readOnly=true)
+	public Page<Cliente> findAll(Pageable pageable) {
+		
+		return clientedao.findAll(pageable);
 	}
 
 }
