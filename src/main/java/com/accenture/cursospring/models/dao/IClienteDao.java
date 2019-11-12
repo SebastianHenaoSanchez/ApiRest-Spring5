@@ -1,7 +1,6 @@
 package com.accenture.cursospring.models.dao;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.repository.CrudRepository;
 
 import com.accenture.cursospring.models.entity.Cliente;
 

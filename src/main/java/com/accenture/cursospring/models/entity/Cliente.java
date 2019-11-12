@@ -14,6 +14,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 
@@ -39,14 +40,11 @@ public class Cliente implements Serializable{
 	@Column(nullable = false, unique = true, length = 200)
 	private String email;
 	
+	@NotNull
 	@Column(name="create_at")
 	@Temporal(TemporalType.DATE)//para transfomar la fecha a tipo date 
 	private Date createAt;
 	
-	@PrePersist //antes de que se haga el save, que me incluya la fecha (persistencia de datos)
-	public void prePersist() {
-		createAt = new Date();
-	}
 	
 	public Long getId() {
 		return id;
